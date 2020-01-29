@@ -4,7 +4,23 @@ const { Storage } = require('@google-cloud/storage');
 const storage = new Storage();
 var pre = "";
 
-A.use('/static', express.static('public'));
+
+
+A.use('/LISTARTICLES', async (request, response) => {
+
+  (async function listFiles() {
+    const [files] = await storage.bucket('triticum').getFiles({
+      autoPaginate: false,
+      delimiter: '/',
+      prefix: 'ARTICLES/'
+    });
+
+    response.send(JSON.stringify(files));
+
+  })()
+
+});
+
 
 A.use('/mailreplies', async (ø, response) => {
 
@@ -29,12 +45,13 @@ A.use('/mailreplies', async (ø, response) => {
 
 })
 
-A.get('/library/*', async (request, response) => {
 
-  getBFD(request.path);
-  
-  async function getBFD (what) {
-    var article = await storage.bucket('triticum').file('ARTICLES' + what + ".html")
+A.get('/ARTICLES/*', async (request, response) => {
+
+  getBFD(request.path.substring(1));
+
+  async function getBFD(what) {
+    var article = await storage.bucket('triticum').file(what)
     var aggregate = article.createReadStream();
     var data = "";
 
@@ -45,20 +62,12 @@ A.get('/library/*', async (request, response) => {
 
 })
 
-A.use('/library', async (ø, response) => {
 
-  (async function listFiles() {
-    const [files] = await storage.bucket('triticum').getFiles({
-      autoPaginate: false,
-      delimiter: '/',
-      prefix: 'ARTICLES/library/'
-    });
+A.use('/', express.static('public', { index: 'taIndex.html' })); 
 
-    response.send(JSON.stringify(files));
 
-  })()
+A.use('/static', express.static('public')); 
 
-});
 
 A.use('/mail', async (ø, response) => {
 
