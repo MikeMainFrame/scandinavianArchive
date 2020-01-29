@@ -3,16 +3,14 @@
   tMinus.textContent = new Date().toUTCString();
 
   taIndex.addEventListener('click', () => { getLibraryList() })
-  
-  //getPage('/zelnick'); // lab mode ....
 
   function getPage(what) {
 
-    const xhr = new XMLHttpRequest();
+    const X = new XMLHttpRequest();
 
-    xhr.onreadystatechange = () => { if (xhr.readyState === 4) ui(xhr.responseText) };
-    xhr.open("GET", "/library" + what);
-    xhr.send();
+    X.onreadystatechange = () => { if (X.readyState === 4) ui(X.responseText) };
+    X.open("GET", what);
+    X.send();
 
     function ui(O) {
       zarticle.innerHTML = O;
@@ -21,11 +19,11 @@
 
   function getLibraryList() {
 
-    const xhr = new XMLHttpRequest();
+    const X = new XMLHttpRequest();
 
-    xhr.onreadystatechange = () => { if (xhr.readyState === 4) libraryListUI(xhr.responseText) };
-    xhr.open("GET", "/library");
-    xhr.send();
+    X.onreadystatechange = () => { if (X.readyState === 4) libraryListUI(X.responseText) };
+    X.open("GET", "/LISTARTICLES/");
+    X.send();
 
     function libraryListUI(O) {
 
@@ -35,7 +33,7 @@
 
       var svg = document.createElementNS(svgns, 'svg');
       svg.setAttribute("id", 'zlibrary');
-      svg.setAttribute("fill", '#800');
+      svg.setAttribute("fill", taSideBarColor.getAttribute('fill'));
       svg.setAttribute("viewbox", "0 0 400 20000");
 
       I.forEach(slot => {
@@ -46,11 +44,12 @@
         rect.setAttribute("width", 300);
         rect.setAttribute("height", 48);
         rect.setAttribute("rx", 5);
-        rect.addEventListener('click', () => {
-          alert(event.target.id)
+        rect.addEventListener('click', () => { 
+          getPage(event.target.id);
+          const die = document.getElementById('zlibrary');
+          die.parentNode.removeChild(die);
         })
         svg.appendChild(rect);
-
         var text = document.createElementNS(svgns, 'text');
         text.setAttribute("x", x + 20);
         text.setAttribute("y", y + 30);

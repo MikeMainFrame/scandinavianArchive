@@ -1,0 +1,75 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 1.33vw;
+  line-height: 2vw;
+  background: linear-gradient(#12121280, #12121280),
+    url(coast.png) center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #fff;
+  font-family: "IBM Plex Sans";
+}
+
+h1 {
+  font-size: 2vw;
+  color: #fff;
+  line-height: 4vw;
+  font-weight: 300;
+  font-family: "Black Ops One";
+  text-align: center;
+  margin: 0;
+  letter-spacing: 0.25vw;
+}
+
+p {
+  font-weight: 300;
+  margin: 0 2vw;
+  white-space: pre-line;
+  float: left;
+}
+
+img {
+  width: 100%;
+}
+
+button {
+  font-family: "Black Ops One";
+  background: linear-gradient(
+    rgba(40, 52, 85, 0.5),
+    rgba(44, 57, 94, 0.5),
+    rgba(40, 52, 85, 0.5)
+  );
+  padding: 1.5vw;
+  font-size: 2vw;
+  margin: 2vw;
+  border: solid 2px #f80;
+  border-radius: 1vw;
+  color: #fff;
+  float: left;
+}
+
+div {
+  float: left;
+}
+
+form {
+  margin: 2vw;
+}
+
+.w50 {
+  width: 46%;
+  padding: 2%;
+  float: left;
+}
+
+.w99 {
+  width: 100%;
+}
+
+#ztriticum {
+  position: fixed;
+  width: 33%;
+  left: 50%;
+  top: 50%;
+}

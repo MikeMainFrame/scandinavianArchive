@@ -11,12 +11,12 @@ h1 {
   margin: 1em 0 0 0;
   font-family: "Black Ops One";
   text-align: left;
-  letter-spacing: 5;
+  letter-spacing: 0.2em;
   font-weight: normal;
 }
 h3 {
   color: #fff;
-  margin-top: 0.5em 0 0 0;
+  margin: 0.5em 0 0 0;
   text-align: left;  
   font-weight: normal;  
 }
@@ -27,18 +27,18 @@ h5 {
   color: #fff;
   margin: .3em 0 0 0;
   text-align: left;
-  font-weight: normal ;
-  
-  letter-spacing: 2;
+  font-weight: lighter ;  
+  letter-spacing: 0.33em;
 }
 h5::before {
   content: "✑ ";
 }
 p {
-  font-weight: 300;
+  font-weight: lighter;
   margin: 0;
   white-space: pre-line;
   float: left;
+  hyphens: auto;
 }
 #zoutside {
   visibility: hidden;
@@ -51,4 +51,25 @@ p {
 #zlibrary {
   width: 100%;
   height: 1200%;
+  font-size: 1em;
+}
+#taBody {
+  margin: 0;
+  padding: 0;  
+  margin-left: 5vw;
+  background-color: #000;
+  background-attachment: fixed;
+  background-size: contain;
+  background-position: right;
+  background-clip: content-box;
+  background-repeat: no-repeat;
+  color: #fff;
+  font-family: 'IBM Plex Sans';
+}
+
+#zmain {
+   margin-right: 3vw;
+}
+svg {
+  font-size:0.6667em ;
 }
