@@ -103,7 +103,7 @@ class TabSeparatedValuesIntoArray {
       sum: C
     } );
 
-    this.what( 'summa ' );
+    this.what( 'summa array with ' + A.length );
     return A;
   }
   tsv2fixed () {

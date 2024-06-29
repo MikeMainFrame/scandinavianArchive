@@ -25,6 +25,7 @@ ta-cell {
 	display: table-cell;
 	padding: 1em;	
 }
+
 ta-cell {
 	
 	border-bottom: solid 0.5px #fff;
@@ -34,6 +35,7 @@ ta-head {
 	border-color: none;
 	background-color: #ff800040;
 }
+
 ta-row {
 	display: table-row;
 }

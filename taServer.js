@@ -58,19 +58,10 @@ async function processRequest ( request, response ) {
 
       switch ( reqURL.pathname ) {
 
-        case '//motor': await motor( 'DE66293' ); break;
         case '//IBM/files': await dofileBuckets(); break;
         case '//csv/x3050_CVR': await doClosedPositions(); break;
         default: response.end( '<h1>Problems ' + reqURL + '</h1>', 'utf-8' );
       }
-
-    }
-    async function motor ( regno ) {
-
-
-      const crm = await fetch( `https://v1.motorapi.dk/vehicles/${regno}`, { headers: { "X-AUTH-TOKEN": process.env.motor } } );
-
-      stream.Readable.fromWeb( crm.body ).pipe( response );
 
     }
     async function doClosedPositions ( file ) {

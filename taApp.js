@@ -1,5 +1,4 @@
 
-
 async function getList () {
 
   const buffer = await fetch( '/csv/x3050_CVR' );
