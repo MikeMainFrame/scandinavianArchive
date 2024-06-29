@@ -106,6 +106,7 @@ class TabSeparatedValuesIntoArray {
     this.what( 'summa array with ' + A.length );
     return A;
   }
+  
   tsv2fixed () {
     let tsvRows = this.tsvSortedSplit;
     let A = [];
