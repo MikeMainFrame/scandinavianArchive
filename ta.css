@@ -1,0 +1,39 @@
+body {
+	margin: 0;
+	font: normal 100 .8em/1.6 'Fira Code', monospace;
+	background: #111;
+	background-image: linear-gradient(#000000a0, #000000a0),
+		url(https://storage.googleapis.com/nasdaqcomponents/NY_stock_exchange_traders_floor_LC-U9-10548-6.jpg);
+	background-attachment: fixed;
+	background-size: cover;
+	object-fit: contain;
+	color: #fff;
+}
+
+ta-table {
+	color: #f00;
+	margin: 1em;
+	display: table;
+	border: none;
+	border-collapse: collapse;	
+	background-color: #00008020;
+}
+
+ta-head,
+ta-cell {
+	color: #fff;
+	display: table-cell;
+	padding: 1em;	
+}
+ta-cell {
+	
+	border-bottom: solid 0.5px #fff;
+}
+ta-head {
+	font-weight: 500;
+	border-color: none;
+	background-color: #ff800040;
+}
+ta-row {
+	display: table-row;
+}
