@@ -11,5 +11,4 @@ async function getList () {
 
   document.body.appendChild( tsvA.tsvRC() );
 }
-
 getList();
