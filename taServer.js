@@ -1,4 +1,5 @@
 'use strict';
+const myname = 'taServer.js';
 const { Storage } = require( '@google-cloud/storage' );
 const https = require( 'node:http' );
 const fs = require( 'node:fs' );
@@ -41,8 +42,9 @@ async function processRequest ( request, response ) {
           async ( msg ) => {
 
             messageStdOut( 'readfile ' + file + msg );
+            let cloud  = file.split( '\\' ).pop();
             const storage = new Storage();
-            const S = await storage.bucket( 'triticumarchives' ).file( 'IBM/' + file );
+            const S = await storage.bucket( 'triticumarchives' ).file( cloud );
             S.createReadStream()
               .on( 'error', ( err ) => {
 
@@ -110,7 +112,7 @@ function collectIncomingPOST ( streamBytes ) {
 
 function messageStdOut ( what ) {
 
-  process.stdout.write( new Date().toISOString() + ' ' + what + '\r\n' );
+  process.stdout.write( myname + ' ' + new Date().toISOString() + ' ' + what + '\r\n' );
 
   return;
 }

@@ -1,6 +1,6 @@
 class TabSeparatedValuesIntoArray {
 
-  constructor ( tsvRaw, primeColumn ) {
+  constructor( tsvRaw, primeColumn ) {
 
     this.name = 'tabSeparatedValuesIntoArray ';
     this.tsvRaw = tsvRaw.split( '\x0D\x0A' );
@@ -31,7 +31,7 @@ class TabSeparatedValuesIntoArray {
     this.what( 'Succesfully transform ' );
   }
   what ( arg ) {
-    console.log( new Date().toISOString() + " " + arg );
+    console.log( this.name + " " + new Date().toISOString() + " " + arg );
   }
   giveMeData () {
     return this.tsvSortedSplit;
@@ -45,16 +45,21 @@ class TabSeparatedValuesIntoArray {
 
       let col = slotNumbers.shift();
 
-      let row = document.createElement( 'ta-row' );
+      let tarow = document.createElement( 'ta-row' );
       let cell = document.createElement( 'ta-cell' );
 
       for ( let row = 0; row < tsvRows.length; row++ ) {
-        cell = document.createElement( 'ta-cell' );
-        celltext.Content = tsvRows[ row ][ col ];
-        rowappendChild( cell );
+        let occilate = 'ta-head';
+        if ( row > 0 ) occilate = 'ta-cell';
+        if (parseInt( tsvRows[ row ][ col ] ) ) occilate = 'ta-right';
+        
+
+        cell = document.createElement( occilate );
+        cell.textContent = tsvRows[ row ][ col ];
+        tarow.appendChild( cell );
       }
 
-      sheet.appendChild( row );
+      sheet.appendChild( tarow );
     }
 
     this.what( 'tsvCR hmtl wrapped ' );
@@ -70,7 +75,7 @@ class TabSeparatedValuesIntoArray {
       let tarow = document.createElement( 'ta-row' );
 
       for ( let col = 0; col < tsvRows[ row ].length; col++ ) {
-  
+
         let cell = document.createElement( cellType );
         cell.textContent = tsvRows[ row ][ col ];
         tarow.appendChild( cell );
@@ -106,7 +111,7 @@ class TabSeparatedValuesIntoArray {
     this.what( 'summa array with ' + A.length );
     return A;
   }
-  
+
   tsv2fixed () {
     let tsvRows = this.tsvSortedSplit;
     let A = [];
